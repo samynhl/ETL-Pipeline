@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 import os
-load_dotenv(r'./extract/.env')
+load_dotenv(r'./extract_transform/.env')
 
 USER_KEY = { 
         "access_key" : os.getenv("ACCESS_KEY")  ,

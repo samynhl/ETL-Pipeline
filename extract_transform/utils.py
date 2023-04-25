@@ -1,5 +1,5 @@
 import psycopg2
-from config import DB_DETAILS
+from extract_transform.config import DB_DETAILS
 
 def postgres_connection(db_host, db_name, db_user, db_pass):
     
