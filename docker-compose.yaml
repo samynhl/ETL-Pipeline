@@ -1,0 +1,59 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ""
+
+    ports:
+      - "8000:8000"
+      
+    restart: always
+
+    command: >
+      sh -c "
+        python extract/app.py
+      "
+
+    volumes:
+      - .:/app
+      
+    depends_on:
+      - postgresdb
+      
+    networks:
+      - monreseau    
+    links:
+      - postgresdb
+
+  postgresdb:
+
+    image: postgres:14.1-alpine
+
+    networks:
+      - monreseau    
+
+    ports:
+      - "5432:5432"
+
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+
+  admine:
+
+    image: adminer
+    restart: always
+    depends_on:
+      - postgresdb
+    ports:
+      - 8080:8080
+    networks:
+      - monreseau    
+    links:
+      - postgresdb
+
+networks:
+  monreseau:
+     name: monreseau
