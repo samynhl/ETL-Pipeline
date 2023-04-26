@@ -8,10 +8,6 @@ services:
     ports:
       - "8000:8000"
     
-    environment:
-      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://postgres:postgres@postgres:5432/postgres
-      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
-    
     restart: always
 
     command: >
@@ -21,9 +17,6 @@ services:
 
     volumes:
       - .:/app
-      - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
       
     depends_on:
       - postgresdb
@@ -47,7 +40,6 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
-  
 
 
   admine:
