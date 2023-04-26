@@ -1,3 +1,6 @@
+import sys
+sys.path.append(r'opt/airflow/src')
+
 
 
 from datetime import timedelta
@@ -9,7 +12,7 @@ from load.load_csv import load_data_to_csv
 
 #defining DAG arguments
 default_args = {
-    'owner': 'Samy',
+    'owner': 'ghiles',
     'start_date': days_ago(0),
     'retries': 2,
     'retry_delay': timedelta(minutes=5),

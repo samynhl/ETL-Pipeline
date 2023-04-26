@@ -1,3 +1,4 @@
+
 from utils import connection_object
 from create_table import create_tables 
 from table import user_info, tweet_info, activity_info
