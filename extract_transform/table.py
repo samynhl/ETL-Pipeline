@@ -1,4 +1,4 @@
-from extract_transform.extract import extract_tweet 
+from extract import extract_tweet 
 from config import USER_NAME
 
 tweet = extract_tweet()

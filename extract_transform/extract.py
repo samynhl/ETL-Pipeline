@@ -69,7 +69,7 @@ def extract_tweet(user_name = USER_NAME)  :
     infos[user_name]["USER_ACTIVITY"]['favoris_count'] =  user.favourites_count
     infos[user_name]["USER_ACTIVITY"]['retweet_count'] =  user.statuses_count
     
-    return infos     
+    return infos
 
 
 if __name__ == '__main__' :
